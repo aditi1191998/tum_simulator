@@ -27,8 +27,8 @@
 //=================================================================================================
 
 #include <hector_gazebo_plugins/gazebo_ros_gps.h>
-#include "gazebo/common/Events.hh"
-#include "gazebo/physics/physics.hh"
+#include "common/Events.hh"
+#include "physics/physics.hh"
 
 static const double EARTH_RADIUS = 6371000.0;
 static const double DEFAULT_REFERENCE_LATITUDE  = 49.9;
@@ -46,7 +46,7 @@ GazeboRosGps::GazeboRosGps()
 // Destructor
 GazeboRosGps::~GazeboRosGps()
 {
-  event::Events::DisconnectWorldUpdateStart(updateConnection);
+  event::Events::DisconnectWorldUpdateBegin(updateConnection);
   node_handle_->shutdown();
   delete node_handle_;
 }
@@ -70,7 +70,7 @@ void GazeboRosGps::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
   }
   else {
     link_name_ = _sdf->GetElement("bodyName")->GetValueString();
-    link = boost::shared_dynamic_cast<physics::Link>(world->GetEntity(link_name_));
+    link = boost::dynamic_pointer_cast<physics::Link>(world->GetEntity(link_name_));
   }
 
   if (!link)

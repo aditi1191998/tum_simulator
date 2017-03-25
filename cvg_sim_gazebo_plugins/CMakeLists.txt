@@ -104,6 +104,7 @@ include_directories(
   ${Boost_INCLUDE_DIRS}
   ${GAZEBO_INCLUDE_DIRS}
   ${SDFormat_INCLUDE_DIRS}
+  /usr/include/gazebo-2.2/gazebo/
 )
 
 ## Declare a cpp library

@@ -29,8 +29,8 @@
 #ifndef HECTOR_GAZEBO_PLUGINS_GAZEBO_ROS_GPS_H
 #define HECTOR_GAZEBO_PLUGINS_GAZEBO_ROS_GPS_H
 
-#include "gazebo/common/Plugin.hh"
-#include "gazebo/common/Time.hh"
+#include "common/Plugin.hh"
+#include "common/Time.hh"
 
 #include <ros/ros.h>
 #include <sensor_msgs/NavSatFix.h>
